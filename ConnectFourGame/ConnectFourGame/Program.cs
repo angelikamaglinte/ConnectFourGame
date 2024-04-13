@@ -49,32 +49,64 @@
 
 
 /*
- * PSEUDO-CODE:
+ * UPDATED SIMPLE PSEUDO-CODE:
  * 
- * Class GameController:
- *    Method Main():
- *       Create ConnectFourGame instance
- *       Call Start() method of ConnectFourGame instance
- *       
- * Class ConnectFourGame:
- *    Method Initialize():
- *       Initialize grid
- *       Initialize players
- *       Set current player as player 1
- *       Set game status as ongoing
+ * Create Class ConnectFourGame
+ *      Initialize private variables here - TO DO: study what variables need to be initialized
+ *      
+ *      
+ * 
+ * Create class GameBoard
+ *      Initialize private variables here: Game Board, Rows, Cols
+ *      
+ *      Create constructor GameBoard()
+ *          Initialize board with empty cells
+ *          
+ *      Create method InitializeGameBoard()
+ *          Fill the board with empty cells
+ *          
+ *      
+ *      
+ * Inside Class Program (Game controller)
+ *      Inside Main Method
+ *          Initialize a ConnectFourGame game
+ *          Start playing game
  * 
  */
 
 
 class ConnectFourGame { 
-    
+    // TO DO
+   // study what variables need to be initialized
 }
 
+// Game Board
+class GameBoard
+{
+    // initialize variables here: 2D Array Board, Rows, and Cols
+    // game board should have 6 rows and 7 columns
+    private char[,] gameBoard;
+    private const int Rows = 6;
+    private const int Cols = 7;
+
+    // initialize board with empty cells here
+    private void InitializeGameBoard()
+    {
+        for (int row = 0; row < Rows; row++)
+        {
+            for (int col = 0; col < Cols; col++)
+            {
+                gameBoard[row, col] = ' '; // empty cells
+            }
+        }
+    }
+}
 
 class Program
 {
     static void Main(string[] args)
     {
-
+        // TO DO
+        // study how to start the game
     }
 }
