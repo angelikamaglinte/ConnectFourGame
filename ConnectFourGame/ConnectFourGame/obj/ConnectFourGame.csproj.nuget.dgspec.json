@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SODV1202\\Project\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj": {}
+    "C:\\Users\\marie\\OneDrive\\Documents\\GitHub\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj": {}
   },
   "projects": {
-    "C:\\SODV1202\\Project\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj": {
+    "C:\\Users\\marie\\OneDrive\\Documents\\GitHub\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SODV1202\\Project\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj",
+        "projectUniqueName": "C:\\Users\\marie\\OneDrive\\Documents\\GitHub\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj",
         "projectName": "ConnectFourGame",
-        "projectPath": "C:\\SODV1202\\Project\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj",
+        "projectPath": "C:\\Users\\marie\\OneDrive\\Documents\\GitHub\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame.csproj",
         "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "C:\\SODV1202\\Project\\ConnectFourGame\\ConnectFourGame\\obj\\",
+        "outputPath": "C:\\Users\\marie\\OneDrive\\Documents\\GitHub\\ConnectFourGame\\ConnectFourGame\\ConnectFourGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
