@@ -65,6 +65,10 @@
  *      Create method InitializeGameBoard()
  *          Fill the board with empty cells
  *          
+ *      Create method DisplayBoard()
+ *          Print the current state of the board - TO DO: call DisplayBoard() once StartGame() is created.
+ *      
+ *      Create method DropPiece() - TO DO: study how a piece is going to be dropped in a specific column.
  *      
  *      
  * Inside Class Program (Game controller)
@@ -99,6 +103,21 @@ class GameBoard
                 gameBoard[row, col] = ' '; // empty cells
             }
         }
+    }
+
+    // display board game
+    public void DisplayBoard()
+    {
+        for (int row = 0; row < Rows; row++)
+        {
+            for (int col = 0; col < Cols; col++)
+            {
+                Console.Write(gameBoard[row, col] + " ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("---------------");
+        Console.WriteLine("1 2 3 4 5 6 7");
     }
 }
 

@@ -1,0 +1,14 @@
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\bin\Debug\net6.0\ConnectFourGame.exe
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\bin\Debug\net6.0\ConnectFourGame.deps.json
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\bin\Debug\net6.0\ConnectFourGame.runtimeconfig.json
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\bin\Debug\net6.0\ConnectFourGame.dll
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\bin\Debug\net6.0\ConnectFourGame.pdb
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.AssemblyInfoInputs.cache
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.AssemblyInfo.cs
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.csproj.CoreCompileInputs.cache
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.dll
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\refint\ConnectFourGame.dll
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.pdb
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.genruntimeconfig.cache
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ref\ConnectFourGame.dll
