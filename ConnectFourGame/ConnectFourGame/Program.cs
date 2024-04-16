@@ -38,7 +38,7 @@ class ConnectFourGame
 
             do
             {
-                System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
+                //System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):"); 
                 Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
             } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
 
@@ -194,7 +194,21 @@ class GameBoard
             }
         }
 
-        // TO DO: check for a winner vertically
+        // check for a winner vertically
+        for (int col = 0; col < Cols; col++)
+        {
+            for (int row = 0; row <= Rows - 4; row++)
+            {
+                if (gameBoard[row, col] != ' ' &&
+                    gameBoard[row, col] == gameBoard[row + 1, col] &&
+                    gameBoard[row, col] == gameBoard[row + 2, col] &&
+                    gameBoard[row, col] == gameBoard[row + 3, col])
+                {
+                    return true;
+                }
+            }
+        }
+
 
         return false; // if there's no winner, return false
     }
