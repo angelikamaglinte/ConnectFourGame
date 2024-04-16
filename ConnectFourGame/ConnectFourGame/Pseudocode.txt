@@ -77,18 +77,18 @@ Inside Class Program (Game controller)
          Start playing game
 
 OOP Concepts:
-Abstract 
+Abstraction
     Give a choice for the player to exit the game
     Use override concept to exit the game
     By default, the player is entered in a new game
 
 Inheritance
-Encapsulation
-Abstraction
-Encapsulation
-Inheritance
+
+
+Encapsulation 
+
+
 Polymorphism
-Access Modifiers
-Data Filtering
-Method Overloading
-Method Overriding
+
+
+Error Handling
