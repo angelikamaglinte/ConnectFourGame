@@ -75,20 +75,11 @@ Inside Class Program (Game controller)
      Inside Main Method
          Initialize a ConnectFourGame game
          Start playing game
+		 
 
-OOP Concepts:
-Abstraction
-    Give a choice for the player to exit the game
-    Use override concept to exit the game
-    By default, the player is entered in a new game
-
-Inheritance
-
-
-Encapsulation 
-
-
-Polymorphism
-
-
-Error Handling
+Game Ides:
+- Ask user if they want to choose a symbol - default will be Player 1 is 'X'.
+- Ask user to input their name.
+- Ask user to input game mode
+	- Play with another human - Two Human Player Game Mode - !Important to make this work first.
+	- Play with a computer - Human Player vs Computer Game Mode
