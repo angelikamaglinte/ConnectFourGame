@@ -179,6 +179,23 @@ class GameBoard
             }
         }
 
+        // check for a winner horizontally
+        for (int row = 0; row < Rows; row++)
+        {
+            for (int col = 0; col <= Cols - 4; col++)
+            {
+                if (gameBoard[row, col] != ' ' &&
+                    gameBoard[row, col] == gameBoard[row, col + 1] &&
+                    gameBoard[row, col] == gameBoard[row, col + 2] &&
+                    gameBoard[row, col] == gameBoard[row, col + 3])
+                {
+                    return true;
+                }
+            }
+        }
+
+        // TO DO: check for a winner vertically
+
         return false; // if there's no winner, return false
     }
 
