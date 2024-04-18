@@ -76,17 +76,35 @@ class ConnectFourGame
 }
 
 // Player Class
-class Player
+// TO DO: Change Player class to abstract class and Player class' methods to abstract methods.
+public abstract class Player
 {
-    public char Symbol { get; }
-    public string Name { get; }
-
-    public Player(char symbol)
+    public char Symbol { get; set;}
+    public string Name { get; private set;}
+    private Player(char symbol)
     {
         Symbol = symbol;
-        Name = (symbol == 'X') ? "Player 1 (X)" : "Player 2 (O)";
     }
+
+    // abstract method to get the player's name
+    public abstract void GetName();
+
+    // TO DO: create a separate class for showing whose turn it is!
 }
+
+
+// Player Class - without OOP abstract class/methods
+//class Player
+//{
+//    public char Symbol { get; }
+//    public string Name { get; }
+
+//    public Player(char symbol)
+//    {
+//        Symbol = symbol;
+//        Name = (symbol == 'X') ? "Player 1 (X)" : "Player 2 (O)";
+//    }
+//}
 
 // Game Board Class
 class GameBoard
