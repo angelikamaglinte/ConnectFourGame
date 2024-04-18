@@ -44,7 +44,7 @@ public class HumanPlayer : Player
             Console.WriteLine($"{Name}, enter column (1-7):");
         } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
 
-        column--; // Adjust for 0-based indexing
+        column--; 
 
         if (!board.DropPiece(column, Symbol))
         {
@@ -54,7 +54,7 @@ public class HumanPlayer : Player
     }
 }
 
-class ConnectFourGame
+public class ConnectFourGame
 {
     // TO DO
     // study what variables need to be initialized
@@ -81,48 +81,69 @@ class ConnectFourGame
     // create StartGame() method
     public void StartGame()
     {
-
+        // TO DO: Update StartGame to use PlayMove method from HumanPlayer Class
         while (!gameBoard.IsGameOver())
         {
             gameBoard.DisplayBoard();
-            int column;
-
-            do
-            {
-                //System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):"); 
-                Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
-            } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
-
-            column--;
-
-            // validations
-            if (gameBoard.DropPiece(column, currentPlayer.Symbol))
-            {
-                if (gameBoard.CheckForWinner())
-                {
-                    // display game board
-                    gameBoard.DisplayBoard();
-                    Console.WriteLine($"Congratulations! {currentPlayer.Name} wins!");
-                    return;
-                }
-                else if (gameBoard.CheckIfDraw())
-                {
-                    // display game board
-                    gameBoard.DisplayBoard();
-                    Console.WriteLine("Oh-oh! It's a draw!");
-                    return;
-                }
-                else
-                {
-                    currentPlayer = (currentPlayer == player1) ? player2 : player1;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Oh-oh! Column is already full. Please choose another column.");
-            }
-
+            currentPlayer.PlayMove(gameBoard);
+            currentPlayer = (currentPlayer == player1) ? player1 : playera2;
         }
+
+        gameBoard.DisplayBoard(); // display game board
+
+        // check if someone won the game or not
+        if (gameBoard.CheckForWinner())
+        {
+            // call here player who won the game.
+        } 
+        else
+        {
+            // if no one won, game is draw. show here a message
+        }
+
+
+        // StartGame Method - old logic
+        //while (!gameBoard.IsGameOver())
+        //{
+        //    gameBoard.DisplayBoard();
+        //    int column;
+
+        //    do
+        //    {
+        //        //System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):"); 
+        //        Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
+        //    } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
+
+        //    column--;
+
+        //    // validations
+        //    if (gameBoard.DropPiece(column, currentPlayer.Symbol))
+        //    {
+        //        if (gameBoard.CheckForWinner())
+        //        {
+        //            // display game board
+        //            gameBoard.DisplayBoard();
+        //            Console.WriteLine($"Congratulations! {currentPlayer.Name} wins!");
+        //            return;
+        //        }
+        //        else if (gameBoard.CheckIfDraw())
+        //        {
+        //            // display game board
+        //            gameBoard.DisplayBoard();
+        //            Console.WriteLine("Oh-oh! It's a draw!");
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Oh-oh! Column is already full. Please choose another column.");
+        //    }
+
+        //}
     }
 }
 
