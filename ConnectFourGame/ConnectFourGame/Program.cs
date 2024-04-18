@@ -7,6 +7,53 @@
  * 
  */
 
+// Player Class
+// TO DO: Change Player class to abstract class and Player class' methods to abstract methods.
+public abstract class Player
+{
+    public char Symbol { get; set; }
+    public string Name { get; protected set; }
+    protected Player(char symbol, string name)
+    {
+        Symbol = symbol; // set the disc symbol
+        Name = name; // set the name of the player 
+    }
+
+    // abstract method to get the player's name
+    public abstract void GetName();
+
+    // TO DO: create a separate class for showing whose turn it is!
+    public abstract void PlayMove(GameBoard gameBoard);
+}
+
+public class HumanPlayer : Player
+{
+    public HumanPlayer(char symbol) : base(symbol) { }
+
+    public override void GetName()
+    {
+        Console.WriteLine($"Enter name for {Symbol} player:");
+        Name = Console.ReadLine();
+    }
+
+    public override void PlayMove(GameBoard board)
+    {
+        int column;
+        do
+        {
+            Console.WriteLine($"{Name}, enter column (1-7):");
+        } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
+
+        column--; // Adjust for 0-based indexing
+
+        if (!board.DropPiece(column, Symbol))
+        {
+            Console.WriteLine("Column is full. Please choose another column.");
+            PlayMove(board); // Retry move
+        }
+    }
+}
+
 class ConnectFourGame
 {
     // TO DO
@@ -21,8 +68,12 @@ class ConnectFourGame
     {
         gameBoard = new GameBoard();
         // first player should have X symbol
-        player1 = new Player('X');
-        player2 = new Player('O');
+        //player1 = new Player('X');
+        //player2 = new Player('O');
+        player1 = new HumanPlayer('X');
+        player2 = new HumanPlayer('O');
+        player1.GetName();
+        player2.GetName();
         // set current player to player 1 as default
         currentPlayer = player1;
     }
@@ -73,23 +124,6 @@ class ConnectFourGame
 
         }
     }
-}
-
-// Player Class
-// TO DO: Change Player class to abstract class and Player class' methods to abstract methods.
-public abstract class Player
-{
-    public char Symbol { get; set;}
-    public string Name { get; private set;}
-    private Player(char symbol)
-    {
-        Symbol = symbol;
-    }
-
-    // abstract method to get the player's name
-    public abstract void GetName();
-
-    // TO DO: create a separate class for showing whose turn it is!
 }
 
 
