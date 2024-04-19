@@ -9,49 +9,50 @@
 
 // Player Class
 // TO DO: Change Player class to abstract class and Player class' methods to abstract methods.
-public abstract class Player
-{
-    public char Symbol { get; set; }
-    public string Name { get; protected set; }
-    protected Player(char symbol)
-    {
-        Symbol = symbol; // set the disc symbol
-    }
+//public abstract class Player
+//{
+//    public char Symbol { get; set; }
+//    public string Name { get; protected set; }
+//    protected Player(char symbol, string name)
+//    {
+//        Symbol = symbol; // set the disc symbol
+//        Name = name; // set the name of the player 
+//    }
 
-    // abstract method to get the player's name
-    public abstract void GetName();
+//    // abstract method to get the player's name
+//    public abstract void GetName();
 
-    // TO DO: create a separate class for showing whose turn it is!
-    public abstract void PlayMove(GameBoard gameBoard);
-}
+//    // TO DO: create a separate class for showing whose turn it is!
+//    public abstract void PlayMove(GameBoard gameBoard);
+//}
 
-public class HumanPlayer : Player
-{
-    public HumanPlayer(char symbol) : base(symbol) { }
+//public class HumanPlayer : Player
+//{
+//    public HumanPlayer(char symbol) : base(symbol) { }
 
-    public override void GetName()
-    {
-        Console.WriteLine($"Enter name for {Symbol} player:");
-        Name = Console.ReadLine();
-    }
+//    public override void GetName()
+//    {
+//        Console.WriteLine($"Enter name for {Symbol} player:");
+//        Name = Console.ReadLine();
+//    }
 
-    public override void PlayMove(GameBoard gameBoard)
-    {
-        int column;
-        do
-        {
-            Console.WriteLine($"{Name}, enter column (1-7):");
-        } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
+//    public override void PlayMove(GameBoard board)
+//    {
+//        int column;
+//        do
+//        {
+//            Console.WriteLine($"{Name}, enter column (1-7):");
+//        } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
 
-        column--; 
+//        column--; 
 
-        if (!gameBoard.DropPiece(column, Symbol))
-        {
-            Console.WriteLine("Column is full. Please choose another column.");
-            PlayMove(gameBoard); // Retry move
-        }
-    }
-}
+//        if (!board.DropPiece(column, Symbol))
+//        {
+//            Console.WriteLine("Column is full. Please choose another column.");
+//            PlayMove(board); // Retry move
+//        }
+//    }
+//}
 
 public class ConnectFourGame
 {
@@ -66,13 +67,13 @@ public class ConnectFourGame
     public ConnectFourGame()
     {
         gameBoard = new GameBoard();
-        // first player should have X symbol
-        //player1 = new Player('X');
-        //player2 = new Player('O');
-        player1 = new HumanPlayer('X');
-        player2 = new HumanPlayer('O');
-        player1.GetName();
-        player2.GetName();
+        //first player should have X symbol
+        player1 = new Player('X');
+        player2 = new Player('O');
+        //player1 = new HumanPlayer('X');
+        //player2 = new HumanPlayer('O');
+        //player1.GetName();
+        //player2.GetName();
         // set current player to player 1 as default
         currentPlayer = player1;
     }
@@ -81,86 +82,84 @@ public class ConnectFourGame
     public void StartGame()
     {
         // TO DO: Update StartGame to use PlayMove method from HumanPlayer Class
-        while (!gameBoard.IsGameOver())
-        {
-            gameBoard.DisplayBoard();
-            currentPlayer.PlayMove(gameBoard);
-            currentPlayer = (currentPlayer == player1) ? player2 : player1; // fixed error here
-        }
-
-        gameBoard.DisplayBoard(); // display game board
-
-        // check if someone won the game or not
-        if (gameBoard.CheckForWinner())
-        {
-            // call here player who won the game.
-            Console.WriteLine($"{currentPlayer.Name} wins!");
-        } 
-        else
-        {
-            // if no one won, game is draw. show here a message
-            Console.WriteLine("It's a draw!");
-        }
-
-
-        // StartGame Method - old logic
         //while (!gameBoard.IsGameOver())
         //{
         //    gameBoard.DisplayBoard();
-        //    int column;
-
-        //    do
-        //    {
-        //        //System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):"); 
-        //        Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
-        //    } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
-
-        //    column--;
-
-        //    // validations
-        //    if (gameBoard.DropPiece(column, currentPlayer.Symbol))
-        //    {
-        //        if (gameBoard.CheckForWinner())
-        //        {
-        //            // display game board
-        //            gameBoard.DisplayBoard();
-        //            Console.WriteLine($"Congratulations! {currentPlayer.Name} wins!");
-        //            return;
-        //        }
-        //        else if (gameBoard.CheckIfDraw())
-        //        {
-        //            // display game board
-        //            gameBoard.DisplayBoard();
-        //            Console.WriteLine("Oh-oh! It's a draw!");
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            currentPlayer = (currentPlayer == player1) ? player2 : player1;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Oh-oh! Column is already full. Please choose another column.");
-        //    }
-
+        //    currentPlayer.PlayMove(gameBoard);
+        //    currentPlayer = (currentPlayer == player1) ? player2 : player1;
         //}
+
+        //gameBoard.DisplayBoard(); // display game board
+
+        //// check if someone won the game or not
+        //if (gameBoard.CheckForWinner())
+        //{
+        //    // call here player who won the game.
+        //} 
+        //else
+        //{
+        //    // if no one won, game is draw. show here a message
+        //}
+
+
+        // StartGame Method - old logic
+        while (!gameBoard.IsGameOver())
+        {
+            gameBoard.DisplayBoard();
+            int column;
+
+            do
+            {
+                //System.Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):"); 
+                Console.WriteLine($"{currentPlayer.Name}, enter column (1-7):");
+            } while (!int.TryParse(Console.ReadLine(), out column) || column < 1 || column > 7);
+
+            column--;
+
+            // validations
+            if (gameBoard.DropPiece(column, currentPlayer.Symbol))
+            {
+                if (gameBoard.CheckForWinner())
+                {
+                    // display game board
+                    gameBoard.DisplayBoard();
+                    Console.WriteLine($"Congratulations! {currentPlayer.Name} wins!");
+                    return;
+                }
+                else if (gameBoard.CheckIfDraw())
+                {
+                    // display game board
+                    gameBoard.DisplayBoard();
+                    Console.WriteLine("Oh-oh! It's a draw!");
+                    return;
+                }
+                else
+                {
+                    currentPlayer = (currentPlayer == player1) ? player2 : player1;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Oh-oh! Column is already full. Please choose another column.");
+            }
+
+        }
     }
 }
 
 
-// Player Class - without OOP abstract class/methods
-//class Player
-//{
-//    public char Symbol { get; }
-//    public string Name { get; }
+//Player Class - without OOP abstract class/ methods
+class Player
+{
+    public char Symbol { get; }
+    public string Name { get; }
 
-//    public Player(char symbol)
-//    {
-//        Symbol = symbol;
-//        Name = (symbol == 'X') ? "Player 1 (X)" : "Player 2 (O)";
-//    }
-//}
+    public Player(char symbol)
+    {
+        Symbol = symbol;
+        Name = (symbol == 'X') ? "Player 1 (X)" : "Player 2 (O)";
+    }
+}
 
 // Game Board Class
 class GameBoard
