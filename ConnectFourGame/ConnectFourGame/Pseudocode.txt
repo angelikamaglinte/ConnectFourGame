@@ -77,9 +77,13 @@ Inside Class Program (Game controller)
          Start playing game
 		 
 
-Game Ides:
+Game Ideas:
 - Ask user if they want to choose a symbol - default will be Player 1 is 'X'.
 - Ask user to input their name.
 - Ask user to input game mode
 	- Play with another human - Two Human Player Game Mode - !Important to make this work first.
 	- Play with a computer - Human Player vs Computer Game Mode
+
+OOP Concepts:
+Inheritance & Abstraction
+- Ask user to input their name

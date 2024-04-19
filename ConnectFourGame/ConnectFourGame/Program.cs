@@ -13,10 +13,9 @@ public abstract class Player
 {
     public char Symbol { get; set; }
     public string Name { get; protected set; }
-    protected Player(char symbol, string name)
+    protected Player(char symbol)
     {
         Symbol = symbol; // set the disc symbol
-        Name = name; // set the name of the player 
     }
 
     // abstract method to get the player's name
@@ -36,7 +35,7 @@ public class HumanPlayer : Player
         Name = Console.ReadLine();
     }
 
-    public override void PlayMove(GameBoard board)
+    public override void PlayMove(GameBoard gameBoard)
     {
         int column;
         do
@@ -46,10 +45,10 @@ public class HumanPlayer : Player
 
         column--; 
 
-        if (!board.DropPiece(column, Symbol))
+        if (!gameBoard.DropPiece(column, Symbol))
         {
             Console.WriteLine("Column is full. Please choose another column.");
-            PlayMove(board); // Retry move
+            PlayMove(gameBoard); // Retry move
         }
     }
 }
@@ -86,7 +85,7 @@ public class ConnectFourGame
         {
             gameBoard.DisplayBoard();
             currentPlayer.PlayMove(gameBoard);
-            currentPlayer = (currentPlayer == player1) ? player1 : playera2;
+            currentPlayer = (currentPlayer == player1) ? player2 : player1; // fixed error here
         }
 
         gameBoard.DisplayBoard(); // display game board
@@ -95,10 +94,12 @@ public class ConnectFourGame
         if (gameBoard.CheckForWinner())
         {
             // call here player who won the game.
+            Console.WriteLine($"{currentPlayer.Name} wins!");
         } 
         else
         {
             // if no one won, game is draw. show here a message
+            Console.WriteLine("It's a draw!");
         }
 
 
