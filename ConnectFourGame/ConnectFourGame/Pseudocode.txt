@@ -83,7 +83,12 @@ Game Ideas:
 - Ask user to input game mode
 	- Play with another human - Two Human Player Game Mode - !Important to make this work first.
 	- Play with a computer - Human Player vs Computer Game Mode
+- Ask user if they want to continue the game
+- Red vs yellow 
+- Change board display
 
 OOP Concepts:
 Inheritance & Abstraction
 - Ask user to input their name
+Encapsulation 
+- Player Name

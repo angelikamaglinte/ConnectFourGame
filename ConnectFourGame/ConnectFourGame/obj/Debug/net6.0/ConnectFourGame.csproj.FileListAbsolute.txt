@@ -12,3 +12,4 @@ C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\Connect
 C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.pdb
 C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.genruntimeconfig.cache
 C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ref\ConnectFourGame.dll
+C:\Users\marie\OneDrive\Documents\GitHub\ConnectFourGame\ConnectFourGame\ConnectFourGame\obj\Debug\net6.0\ConnectFourGame.sourcelink.json
