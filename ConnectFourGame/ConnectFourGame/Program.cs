@@ -77,26 +77,6 @@ public class ConnectFourGame
     }
 
     // start game 
-    //public void StartGame()
-    //{
-    //    while (!gameBoard.IsGameOver())
-    //    {
-    //        gameBoard.DisplayBoard();
-    //        currentPlayer.PlayMove(gameBoard);
-    //        currentPlayer = (currentPlayer == player1) ? player2 : player1;
-    //    }
-
-    //    gameBoard.DisplayBoard();
-
-    //    if (gameBoard.CheckForWinner())
-    //    {
-    //        Console.WriteLine($"{currentPlayer.Name} wins!");
-    //    }
-    //    else
-    //    {
-    //        Console.WriteLine("It's a draw!");
-    //    }
-    //}
     public void StartGame()
     {
         while (!gameBoard.IsGameOver())
@@ -108,7 +88,7 @@ public class ConnectFourGame
 
         gameBoard.DisplayBoard();
 
-        // Check the previous player before switching to the next one
+        // checking the previous player name before switching to the next one 
         Player winner = (currentPlayer == player1) ? player2 : player1;
 
         if (gameBoard.CheckForWinner())
