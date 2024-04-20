@@ -6,14 +6,6 @@
  * Student No: 449836 
  * 
  */
-/*
- * SODV1202 - Introduction to Object Oriented Programming 
- * Term Project: Connect Four Game
- * 
- * Student Name: Marie Angelika Maglinte
- * Student No: 449836 
- * 
- */
 
 // Abstract Player Class
 public abstract class Player
@@ -31,7 +23,7 @@ public abstract class Player
     // get player's name
     public abstract void GetName();
 
-    // 
+    // player's turn
     public abstract void PlayMove(GameBoard gameBoard);
 
 }
