@@ -41,15 +41,49 @@ public class HumanPlayer : Player
 
     public override void PlayMove(GameBoard gameBoard)
     {
+        
+        //int column;
+        //do
+        //{
+        //    Console.WriteLine($"{Name}, with {Symbol} disc symbol, please enter column (1-7):");
+        //} while (!int.TryParse( Console.ReadLine(), out column) || column < 1 || column > 7);
+
+        //column--;
+
+        //if(!gameBoard.DropPiece(column, Symbol))
+        //{
+        //    Console.WriteLine("Oh-oh! Column is full. Please choose another column.");
+        //    PlayMove(gameBoard);
+        //}
+
+        // Updated PlayMove method to handle exception errors!
         int column;
-        do
+
+        while (true)
         {
-            Console.WriteLine($"{Name}, with {Symbol} disc symbol, please enter column (1-7):");
-        } while (!int.TryParse( Console.ReadLine(), out column) || column < 1 || column > 7);
+            Console.WriteLine($"It's {Name}'s ({Symbol}) turn! Please enter column (1-7):");
+            try
+            {
+                column = int.Parse(Console.ReadLine());
+                if (column < 1 || column > 7)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                break; // Exit the loop if input is valid
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input! Please enter a number.");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Column number must be between 1 and 7.");
+            }
+        }
 
         column--;
 
-        if(!gameBoard.DropPiece(column, Symbol))
+        if (!gameBoard.DropPiece(column, Symbol))
         {
             Console.WriteLine("Oh-oh! Column is full. Please choose another column.");
             PlayMove(gameBoard);
@@ -103,7 +137,7 @@ public class ConnectFourGame
 
             if (gameBoard.CheckForWinner())
             {
-                Console.WriteLine($"{winner.Name} Disc Symbol {winner.Symbol} wins!");
+                Console.WriteLine($"Player {winner.Name} ({winner.Symbol} symbol) wins!");
             }
             else
             {
