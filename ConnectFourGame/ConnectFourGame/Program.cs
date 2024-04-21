@@ -44,7 +44,7 @@ public class HumanPlayer : Player
         int column;
         do
         {
-            Console.WriteLine($"{Name}, enter column (1-7):");
+            Console.WriteLine($"{Name}, with {Symbol} disc symbol, please enter column (1-7):");
         } while (!int.TryParse( Console.ReadLine(), out column) || column < 1 || column > 7);
 
         column--;
@@ -79,25 +79,53 @@ public class ConnectFourGame
     // start game 
     public void StartGame()
     {
-        while (!gameBoard.IsGameOver())
+        //player1.GetName();
+        //player2.GetName();
+
+        bool continuePlaying = true;
+
+        while (continuePlaying)
         {
+            
+
+            while (!gameBoard.IsGameOver())
+            {
+                Console.Clear();
+                gameBoard.DisplayBoard();
+                currentPlayer.PlayMove(gameBoard);
+                currentPlayer = (currentPlayer == player1) ? player2 : player1;
+            }
+
+            Console.Clear();
             gameBoard.DisplayBoard();
-            currentPlayer.PlayMove(gameBoard);
-            currentPlayer = (currentPlayer == player1) ? player2 : player1;
-        }
 
-        gameBoard.DisplayBoard();
+            Player winner = (currentPlayer == player1) ? player2 : player1;
 
-        // checking the previous player name before switching to the next one 
-        Player winner = (currentPlayer == player1) ? player2 : player1;
+            if (gameBoard.CheckForWinner())
+            {
+                Console.WriteLine($"{winner.Name} Disc Symbol {winner.Symbol} wins!");
+            }
+            else
+            {
+                Console.WriteLine("It's a draw!");
+            }
 
-        if (gameBoard.CheckForWinner())
-        {
-            Console.WriteLine($"{winner.Name} wins!");
-        }
-        else
-        {
-            Console.WriteLine("It's a draw!");
+            // prompt the user if they want to play again
+            Console.WriteLine("Do you want to play again? (Y/N)");
+            char choice = Console.ReadKey().KeyChar;
+            continuePlaying = (choice == 'Y' || choice == 'y');
+
+            
+
+            // if the user wants to play again, reset the game board and player turns
+            if (continuePlaying)
+            {
+                gameBoard = new GameBoard();
+
+                Console.WriteLine();
+                player1.GetName();
+                player2.GetName();
+            }
         }
     }
 
