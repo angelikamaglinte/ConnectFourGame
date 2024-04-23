@@ -7,7 +7,7 @@
  * 
  */
 
-
+//////////////////////////////////////////// WORKING CODE WITH 2 GAME MODES - 1. PLAYER VS PLAYER, 2. PLAYER VS. COMPUTER ////////////////////////////////////////////
 // abstract player class
 public abstract class Player
 {
@@ -147,10 +147,47 @@ public class ConnectFourGame
                 Console.WriteLine("It's a draw!");
             }
 
+            //// prompt the user if they want to play again
+            //Console.WriteLine("Do you want to play again? (Y/N)");
+            //char choice = Console.ReadKey().KeyChar;
+            //continuePlaying = (choice == 'Y' || choice == 'y');
+
+            //// if the user wants to play again, reset the game board and player turns
+            //if (continuePlaying)
+            //{
+            //    gameBoard = new GameBoard();
+            //    currentPlayer = player1; // Reset currentPlayer to player1
+            //}
+
+            // 
             // prompt the user if they want to play again
-            Console.WriteLine("Do you want to play again? (Y/N)");
-            char choice = Console.ReadKey().KeyChar;
-            continuePlaying = (choice == 'Y' || choice == 'y');
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("Do you want to play again? (Y/N)");
+                try
+                {
+                    char choice = Console.ReadKey().KeyChar;
+                    if (choice == 'Y' || choice == 'y')
+                    {
+                        continuePlaying = true;
+                        validInput = true;
+                    }
+                    else if (choice == 'N' || choice == 'n')
+                    {
+                        continuePlaying = false;
+                        validInput = true;
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nInvalid input! Please enter 'Y' or 'N'.");
+                }
+            }
 
             // if the user wants to play again, reset the game board and player turns
             if (continuePlaying)
