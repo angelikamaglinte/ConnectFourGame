@@ -42,8 +42,13 @@ public class HumanPlayer : Player
             Console.WriteLine($"Enter name for {Symbol} player:");
             Name = Console.ReadLine();
 
+            // Check if the name is blank or empty
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                Console.WriteLine("Name cannot be blank! Please enter your name.");
+            }
             // Check if the name contains any digits
-            if (Name.Any(char.IsDigit))
+            else if (Name.Any(char.IsDigit))
             {
                 Console.WriteLine("Invalid name! Name cannot contain numbers. Please enter again.");
             }
