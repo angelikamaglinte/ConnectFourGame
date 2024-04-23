@@ -35,8 +35,23 @@ public class HumanPlayer : Player
 
     public override void GetName()
     {
-        Console.WriteLine($"Enter name for {Symbol} player:");
-        Name = Console.ReadLine();
+        //Console.WriteLine($"Enter name for {Symbol} player:");
+        //Name = Console.ReadLine();
+        while (true)
+        {
+            Console.WriteLine($"Enter name for {Symbol} player:");
+            Name = Console.ReadLine();
+
+            // Check if the name contains any digits
+            if (Name.Any(char.IsDigit))
+            {
+                Console.WriteLine("Invalid name! Name cannot contain numbers. Please enter again.");
+            }
+            else
+            {
+                break; // Exit the loop if the name is valid
+            }
+        }
     }
 
     public override void PlayMove(GameBoard gameBoard)
