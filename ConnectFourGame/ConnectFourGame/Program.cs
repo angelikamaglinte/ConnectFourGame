@@ -34,8 +34,28 @@ public class HumanPlayer : Player
 
     public override void GetName()
     {
-        Console.WriteLine($"Enter name for {Symbol} player:");
-        Name = Console.ReadLine();
+        //Console.WriteLine($"Enter name for {Symbol} player:");
+        //Name = Console.ReadLine();
+
+        while (true)
+        {
+            Console.WriteLine($"Enter name for {Symbol} player:");
+            Name = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                Console.WriteLine("Name cannot be blank! Please enter your name.");
+            }
+
+            else if (Name.Any(char.IsDigit))
+            {
+                Console.WriteLine("Invalid name! Name cannot contain numbers. Please enter again.");
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
     public override void PlayMove(GameBoard gameBoard)
@@ -121,6 +141,7 @@ public class ConnectFourGame
 
         while (continuePlaying)
         {
+            Console.WriteLine();
             // get player names based on chosen game mode
             player1.GetName(); 
             player2.GetName();
